@@ -1,18 +1,12 @@
 # simple-ng-tags
 
-##[DEMO](https://plnkr.co/edit/4zFhtmlZThEebq6NdXGN?p=preview)
+Simple tag input component implementation for Angular 4. Works with template and reactive angular forms.
+
+[DEMO](https://plnkr.co/edit/4zFhtmlZThEebq6NdXGN?p=preview)
 
 ## Installation
 
-To install this library, run:
-
-```bash
-$ npm install simple-ng-tags --save
-```
-
-## Consuming your library
-
-Once you have published your library to npm, you can import your library in any Angular application by running:
+To install library, run:
 
 ```bash
 $ npm install simple-ng-tags --save
@@ -38,7 +32,7 @@ import { SimpleNgTagsModule } from 'simple-ng-tags';
     BrowserModule,
     FormsModule
 
-    // Specify your library as an import
+    // Specify library as an import
     SimpleNgTagsModule
   ],
   providers: [],
@@ -47,17 +41,17 @@ import { SimpleNgTagsModule } from 'simple-ng-tags';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its components in your Angular application:
+Once the library is imported, you can use `simple-ng-tags` component in your Angular application:
 
 ```xml
-<!-- You can now use your library component in app.component.html -->
+<!-- You can now use the library component in app.component.html -->
 <h1>
   {{title}}
 </h1>
 <simple-ng-tags [(ngModel)]="tags"></simple-ng-tags>
 ```
 ```xml
-<!-- app.component.ts -->
+<!-- Initialize tags in app.component.ts -->
 ...
 export class AppComponent {
   tags: any[] = ['tag 1', 'tag 2', 'tag 3'];
