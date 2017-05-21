@@ -2,7 +2,8 @@
 
 Simple tag input component implementation for Angular 4. Works with template and reactive angular forms.
 
-[DEMO](https://plnkr.co/edit/4zFhtmlZThEebq6NdXGN?p=preview)
+[DEMO 1](https://plnkr.co/edit/4zFhtmlZThEebq6NdXGN?p=preview)
+[DEMO 2](https://plnkr.co/edit/j6US7jNyUviqxKM5crVp?p=preview)
 
 ## Installation
 
@@ -21,7 +22,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-// Import your library
+// Import library
 import { SimpleNgTagsModule } from 'simple-ng-tags';
 
 @NgModule({
@@ -40,7 +41,8 @@ import { SimpleNgTagsModule } from 'simple-ng-tags';
 })
 export class AppModule { }
 ```
-
+### Template driven form example
+[DEMO](https://plnkr.co/edit/4zFhtmlZThEebq6NdXGN?p=preview)
 Once the library is imported, you can use `simple-ng-tags` component in your Angular application:
 
 ```xml
@@ -50,13 +52,59 @@ Once the library is imported, you can use `simple-ng-tags` component in your Ang
 </h1>
 <simple-ng-tags [(ngModel)]="tags"></simple-ng-tags>
 ```
-```xml
-<!-- Initialize tags in app.component.ts -->
-...
-export class AppComponent {
-  tags: any[] = ['tag 1', 'tag 2', 'tag 3'];
+```typescript
+import {Component, OnInit} from '@angular/core';
 
-...
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+
+export class AppComponent implements OnInit {
+  tags: ['tag 1', 'tag 2', 'tag 3'];
+
+  constructor() {}
+
+  ngOnInit() {}
+}
+
+```
+
+### Reactive form example
+[DEMO](https://plnkr.co/edit/j6US7jNyUviqxKM5crVp?p=preview)
+Once the library is imported, you can use `simple-ng-tags` component in your Angular application:
+
+```xml
+<!-- You can now use the library component in app.component.html -->
+<h1>
+  {{title}}
+</h1>
+<simple-ng-tags [formControl]="tags"></simple-ng-tags>
+```
+```typescript
+<!-- Initialize tags in app.component.ts -->
+import {Component, OnInit} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+
+export class AppComponent implements OnInit {
+  tags: FormControl;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.tags = new FormControl(['tag 1', 'tag 2', 'tag 3'], Validators.required);
+    this.tags.valueChanges.subscribe( _tags => {
+      console.log(_tags);
+    });
+  }
+}
 ```
 
 ## Development
