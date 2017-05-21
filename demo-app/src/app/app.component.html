@@ -1,3 +1,7 @@
+<h1>Template driven form example</h1>
+<simple-ng-tags [(ngModel)]="tags"></simple-ng-tags>
+<p>{{tags | json}}</p>
+<br><br> 
+<h1>Reactive form example</h1>
 <simple-ng-tags [formControl]="tagsControl"></simple-ng-tags>
-<br>
-{{tags | json}}
+<p>{{tagsControl.value | json}}</p>
