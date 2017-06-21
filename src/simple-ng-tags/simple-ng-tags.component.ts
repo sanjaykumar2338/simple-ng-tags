@@ -60,7 +60,7 @@ export class SimpleNgTagsComponent implements OnInit, ControlValueAccessor {
   }
 
   removeTag(_tag){
-    const _tagIndex = this.tags.findIndex(tag => tag === tag);
+    const _tagIndex = this.tags.findIndex(tag => tag === _tag);
     if(_tagIndex > -1) {
       this.tags.splice(_tagIndex, 1);
       this.onChange(this.tags);
