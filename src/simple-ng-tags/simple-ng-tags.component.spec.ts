@@ -20,6 +20,7 @@ describe('SimpleNgTagsComponent', () => {
   });
 
   it('should be created', () => {
+    console.log('Here I am');
     expect(component).toBeTruthy();
   });
 });
